@@ -37,8 +37,28 @@ def _binary_search(mylist, key, left, right):
 	Returns:
 	  index of key in mylist, or -1 if not present.
 	"""
-	### TODO
-	###
+def binary_search(arr, left, right, x): 
+  
+    # Check base case 
+   
+   if high >= low:
+        mid = (right + left) // 2
+  
+        # If element is present at the middle itself 
+        if arr[mid] == x: 
+            return mid 
+  
+        # If element is smaller than mid, then it can only 
+        # be present in left subarray 
+        elif arr[mid] > x: 
+            return binary_search(key, left, mid - 1, right) 
+  
+        # Else the element can only be present in right subarray 
+        else: 
+            return binary_search(key, mid + 1, right, x)
+            else:
+            return -t
+  
 
 def test_binary_search():
 	assert binary_search([1,2,3,4,5], 5) == 4
