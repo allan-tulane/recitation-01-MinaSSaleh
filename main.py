@@ -20,7 +20,9 @@ def test_linear_search():
 	assert linear_search([1,2,3,4,5], 1) == 0
 	assert linear_search([1,2,3,4,5], 6) == -1
 
-
+def binary_search(mylist, key):
+	""" done. """
+	return _binary_search(mylist, key, 0, len(mylist)-1)
 
 def binary_search(arr, low, high, x): 
   
@@ -45,7 +47,6 @@ def binary_search(arr, low, high, x):
     else: 
         # Element is not present in the array 
         return -1
-
 def test_binary_search():
 	assert binary_search([1,2,3,4,5], 5) == 4
 	assert binary_search([1,2,3,4,5], 1) == 0
