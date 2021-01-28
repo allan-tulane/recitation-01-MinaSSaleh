@@ -20,29 +20,14 @@ def test_linear_search():
 	assert linear_search([1,2,3,4,5], 1) == 0
 	assert linear_search([1,2,3,4,5], 6) == -1
 
-def binary_search(mylist, key):
-	""" done. """
-	return _binary_search(mylist, key, 0, len(mylist)-1)
 
-def _binary_search(mylist, key, left, right):
-	"""
-	Recursive implementation of binary search.
 
-	Params:
-	  mylist....list to search
-	  key.......search key
-	  left......left index into list to search
-	  right.....right index into list to search
-
-	Returns:
-	  index of key in mylist, or -1 if not present.
-	"""
-def binary_search(arr, left, right, x): 
+def binary_search(arr, low, high, x): 
   
     # Check base case 
-   
-   if high >= low:
-        mid = (right + left) // 2
+    if high >= low: 
+  
+        mid = (high + low) // 2
   
         # If element is present at the middle itself 
         if arr[mid] == x: 
@@ -51,24 +36,23 @@ def binary_search(arr, left, right, x):
         # If element is smaller than mid, then it can only 
         # be present in left subarray 
         elif arr[mid] > x: 
-            return binary_search(key, left, mid - 1, right) 
+            return binary_search(arr, low, mid - 1, x) 
   
         # Else the element can only be present in right subarray 
         else: 
-            return binary_search(key, mid + 1, right, x)
-      else:
-            return -t
+            return binary_search(arr, mid + 1, high, x) 
   
+    else: 
+        # Element is not present in the array 
+        return -1
 
 def test_binary_search():
 	assert binary_search([1,2,3,4,5], 5) == 4
 	assert binary_search([1,2,3,4,5], 1) == 0
 	assert binary_search([1,2,3,4,5], 6) == -1
-  
 	### TODO: add two more tests here.
 	###
- assert binary_search([2,6,8],10)=-1
-  assert binary_search([2,4,3,3])=2
+
 
 def time_search(search_fn, mylist, key):
 	"""
